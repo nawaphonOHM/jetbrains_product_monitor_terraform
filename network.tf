@@ -15,3 +15,8 @@ variable "CICD" {
   type = string
   default = local.vpc_ip
 }
+
+variable "subnet" {
+  type = list(string)
+  default = [avaliableSubnets[0], avaliableSubnets[1]]
+}
