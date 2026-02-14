@@ -16,3 +16,8 @@ resource "aws_subnet" "subnet01" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.subnet[0]
 }
+
+resource "aws_subnet" "subnet02" {
+  vpc_id = aws_vpc.vpc.id
+  cidr_block = var.subnet[1]
+}
