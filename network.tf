@@ -10,3 +10,8 @@ locals {
 
   avaliable_subnets = cidrsubnets(cicd, local.network_bit_for_subnet - local.network_bit)
 }
+
+variable "CICD" {
+  type = string
+  default = local.vpc_ip
+}
