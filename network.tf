@@ -7,4 +7,6 @@ locals {
   network_bit_for_subnet = 28
 
   cicd = "${local.vpc_ip}/${local.network_bit}"
+
+  avaliable_subnets = cidrsubnets(cicd, local.network_bit_for_subnet - local.network_bit)
 }
