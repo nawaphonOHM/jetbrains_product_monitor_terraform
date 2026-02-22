@@ -29,6 +29,13 @@ resource "aws_subnet" "subnet02" {
   cidr_block = var.subnet[1]
 }
 
+resource "awscc_rds_db_subnet_group" "db_subnet" {
+  db_subnet_group_description = "This is for db subnet"
+  subnet_ids = [aws_subnet.subnet01.id]
+
+  db_subnet_group_name = "Main RDS Subnets"
+}
+
 resource "awscc_rds_db_instance" "main_db" {
   db_name = "jetbrains_product_version"
   engine = "postgres"
