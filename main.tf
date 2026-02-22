@@ -44,7 +44,7 @@ resource "awscc_rds_db_subnet_group" "db_subnet" {
   db_subnet_group_description = "This is for db subnet"
   subnet_ids = [aws_subnet.subnet01.id, aws_subnet.subnet02.id, aws_subnet.subnet03.id]
 
-  db_subnet_group_name = "Main RDS Subnets"
+  db_subnet_group_name = "main rds subnets"
 }
 
 resource "awscc_rds_db_instance" "main_db" {
