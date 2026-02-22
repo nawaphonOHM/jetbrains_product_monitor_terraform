@@ -48,4 +48,5 @@ resource "awscc_rds_db_instance" "main_db" {
   master_user_password = true
 
   db_subnet_group_name = awscc_rds_db_subnet_group.db_subnet.db_subnet_group_name
+  multi_az = false
 }
