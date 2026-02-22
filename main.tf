@@ -56,7 +56,7 @@ resource "awscc_rds_db_instance" "main_db" {
   db_instance_class = "db.t4g.micro"
 
   master_username = "nawaphon"
-  master_user_password = true
+  manage_master_user_password = true
 
   db_subnet_group_name = awscc_rds_db_subnet_group.db_subnet.db_subnet_group_name
   multi_az = false
