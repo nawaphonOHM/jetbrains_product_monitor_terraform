@@ -7,5 +7,5 @@ variable "CICD" {
 
 variable "subnet" {
   type = list(string)
-  default = ["192.168.0.0/28", "192.168.0.16/28"]
+  default = ["192.168.0.0/28", "192.168.0.16/28", "192.168.0.32/28"]
 }
