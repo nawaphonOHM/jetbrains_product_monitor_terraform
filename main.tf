@@ -14,6 +14,9 @@ terraform {
 
 resource "aws_vpc" "vpc" {
   cidr_block = var.CICD
+  tags = {
+    "Name": "jetbrains observe vpc"
+  }
 }
 
 resource "aws_subnet" "subnet01" {
