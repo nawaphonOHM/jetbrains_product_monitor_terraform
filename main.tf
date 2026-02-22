@@ -36,6 +36,8 @@ resource "aws_subnet" "subnet02" {
 resource "aws_subnet" "subnet03" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.subnet[2]
+
+  availability_zone = "ap-southeast-1c"
 }
 
 resource "awscc_rds_db_subnet_group" "db_subnet" {
