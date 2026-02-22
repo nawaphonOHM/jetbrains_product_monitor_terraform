@@ -13,7 +13,7 @@ locals {
 
 variable "CICD" {
   type = string
-  default = local.vpc_ip
+  default = "192.168.0.0/16"
 }
 
 variable "subnet" {
