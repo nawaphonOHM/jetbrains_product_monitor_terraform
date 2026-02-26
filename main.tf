@@ -19,26 +19,26 @@ provider "aws" {
 resource "aws_vpc" "vpc" {
   cidr_block = var.CICD
   tags = {
-    "Name": "jetbrains observe vpc"
+    "Name" : "jetbrains observe vpc"
   }
 }
 
 resource "aws_subnet" "subnet01" {
-  vpc_id = aws_vpc.vpc.id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = var.subnet[0]
 
   availability_zone = "ap-southeast-7a"
 }
 
 resource "aws_subnet" "subnet02" {
-  vpc_id = aws_vpc.vpc.id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = var.subnet[1]
 
   availability_zone = "ap-southeast-7b"
 }
 
 resource "aws_subnet" "subnet03" {
-  vpc_id = aws_vpc.vpc.id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = var.subnet[2]
 
   availability_zone = "ap-southeast-7c"
@@ -46,22 +46,22 @@ resource "aws_subnet" "subnet03" {
 
 resource "awscc_rds_db_subnet_group" "db_subnet" {
   db_subnet_group_description = "This is for db subnet"
-  subnet_ids = [aws_subnet.subnet01.id, aws_subnet.subnet02.id, aws_subnet.subnet03.id]
+  subnet_ids                  = [aws_subnet.subnet01.id, aws_subnet.subnet02.id, aws_subnet.subnet03.id]
 
   db_subnet_group_name = "main rds subnets"
 }
 
 resource "awscc_rds_db_instance" "main_db" {
   db_name = "jetbrains_product_version"
-  engine = "postgres"
+  engine  = "postgres"
 
   allocated_storage = "20"
 
   db_instance_class = "db.t4g.micro"
 
-  master_username = "nawaphon"
+  master_username             = "nawaphon"
   manage_master_user_password = true
 
   db_subnet_group_name = awscc_rds_db_subnet_group.db_subnet.db_subnet_group_name
-  multi_az = false
+  multi_az             = false
 }
