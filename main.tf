@@ -11,6 +11,9 @@ terraform {
   }
 }
 
+provider "aws" {
+}
+
 
 resource "aws_vpc" "vpc" {
   cidr_block = var.CICD
